@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Fury</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="game-canvas"></canvas>
+
+    <!-- UI Overlay for In-Game HUD (Updated for LIVES) -->
+    <div id="hud">
+        <div class="hud-item">
+            <span>SCORE</span>
+            <p id="score">0000</p>
+        </div>
+        <div class="hud-item">
+            <span>LIVES</span>
+            <p id="lives">3</p>
+        </div>
+    </div>
+    
+    <!-- This new div will be used for the screen flash effect -->
+    <div id="damage-flash"></div>
+
+    <div id="menu-overlay">
+        <h1 id="menu-title">VECTOR FURY</h1>
+        <p id="menu-subtitle">Your final score was: <span id="final-score">0</span></p>
+        <button id="start-button">Start Game</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

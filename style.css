@@ -1,0 +1,41 @@
+:root {
+    --accent-color: #ff4136;
+    --accent-rgb: 255, 65, 54;
+    --bg-color: #000000;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-color); font-family: 'Inter', sans-serif; color: #fff; overflow: hidden; cursor: none; }
+#game-canvas { position: fixed; top: 0; left: 0; }
+.shake { animation: shake 0.4s; }
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+  40%, 60% { transform: translate3d(6px, 0, 0); }
+}
+
+/* --- NEW DAMAGE FLASH EFFECT --- */
+#damage-flash {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(255, 65, 54, 0.8);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease-out;
+}
+#damage-flash.active {
+    opacity: 1;
+}
+
+/* --- HUD & Menus (Health bar removed) --- */
+#hud { position: fixed; top: 20px; left: 20px; display: flex; gap: 40px; font-family: 'Chakra Petch', sans-serif; text-transform: uppercase; opacity: 0; transition: opacity 0.5s ease; z-index: 10; pointer-events: none; }
+.hud-item span { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); letter-spacing: 2px; }
+.hud-item p { font-size: 2rem; letter-spacing: 1px; }
+#menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 100; opacity: 1; visibility: visible; transition: opacity 0.5s ease, visibility 0.5s ease; cursor: default; }
+#menu-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+#menu-title { font-family: 'Chakra Petch', sans-serif; font-size: 5rem; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-color); }
+#menu-subtitle { font-size: 1.2rem; margin-top: 10px; margin-bottom: 40px; color: rgba(255, 255, 255, 0.7); display: none; }
+#start-button { font-family: 'Chakra Petch', sans-serif; font-size: 1.2rem; font-weight: 600; color: #fff; background-color: transparent; border: 2px solid var(--accent-color); padding: 15px 40px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease-out; box-shadow: 0 0 15px -5px var(--accent-color); text-transform: uppercase; }
+#start-button:hover { background-color: rgba(var(--accent-rgb), 0.1); box-shadow: 0 0 25px 0px var(--accent-color); transform: scale(1.05); }
